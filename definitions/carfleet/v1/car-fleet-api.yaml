@@ -137,6 +137,7 @@ paths:
         content:
           application/json:
             schema:
+              # relative paths not working. paths must be absolute because the parsing is evaluated on the client
               $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/commons/v1/shared-objects-schema.yaml#/components/schemas/SearchTemplate'
         required: true
         description: SearchTemplate with filter Groups
