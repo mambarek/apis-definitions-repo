@@ -1,0 +1,189 @@
+openapi: 3.0.2
+info:
+  title: Car Fleet Service
+  description: Car Fleet Service API
+  version: 1.0.0
+  contact:
+    name: API Support
+    url: http://www.example.com/support
+    email: support@example.com
+  license:
+    name: Apache license 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: http://localhost:8030
+tags:
+  - name: Cars
+    description: Cars fleet Mangament
+    externalDocs:
+      description: Find out more about our Car fleet
+      url: http://localhost:8030
+  - name: Reservation
+    description: Car reservation service
+
+paths:
+  /api/v1/cars:
+    get:
+      tags:
+        - Cars
+      operationId: getCars
+      summary: Returns all cars
+      description: Return all Cars from DB
+      responses:
+        "200":
+          description: Cars found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "./object-schema.yaml#/components/schemas/Car"
+      security: []
+
+    post:
+      tags:
+        - cars
+      operationId: createCar
+      summary: Saves a new Car
+      description: Persists a new created Car
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              $ref: './object-schema.yaml#/components/schemas/Car'
+        required: true
+      responses:
+        "201":
+          description: Car created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "./object-schema.yaml#/components/schemas/Car"
+          headers:
+            Location:
+              description: Location of the created Car with publicId
+              schema:
+                type: string
+                format: uri
+                example: http://localhost:8030/api/v1/cars/{publicId}
+
+  /api/v1/cars/{publicId}:
+    get:
+      tags:
+        - cars
+      operationId: getCarByPublicId
+      summary: Get Car by publicId
+      description: Get Car by it's publicId
+      parameters:
+        - $ref: '#/components/parameters/CarPublicIdPathParam'
+      responses:
+        "200":
+          description: Car successfuly found
+          content:
+            'application/json':
+              schema:
+                $ref: './object-schema.yaml#/components/schemas/Car'
+        "404":
+          description: Car not found
+      security: []
+
+    put:
+      tags:
+        - cars
+      operationId: updateCar
+      summary: Update car
+      description: Update Car by publicId
+      parameters:
+        - $ref: '#/components/parameters/CarPublicIdPathParam'
+      requestBody:
+        required: true
+        content:
+          "application/json":
+            schema:
+              $ref: './object-schema.yaml#/components/schemas/Car'
+
+      responses:
+        "204":
+          description: Car successfully updated
+          content:
+            "application/json":
+              schema:
+                $ref: './object-schema.yaml#/components/schemas/Car'
+        "400":
+          description: Bad request
+        "409":
+          description: Conflict
+
+    delete:
+      tags:
+        - car
+      summary: Delete car
+      description: Delete car by publicId
+      operationId: deleteCar
+      parameters:
+        - $ref: '#/components/parameters/CarPublicIdPathParam'
+      responses:
+        "204":
+          description: Car successfully deleted
+
+  /api/v1/cars/search:
+    post:
+      tags:
+        - search
+      summary: Search cars for a given filter
+      description: Return a SearchResult containing found cars
+      operationId: search
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/commons/v1/shared-objects-schema.yaml#/components/schemas/SearchTemplate'
+        required: true
+        description: SearchTemplate with filter Groups
+      responses:
+        "200":
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: './object-schema.yaml#/components/schemas/SearchResult'
+
+  /api/v1/reservation:
+      get:
+        tags:
+          - Reservation
+        operationId: getCarReservations
+        responses:
+          "200":
+            description: Cars Reservation found
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "./object-schema.yaml#/components/schemas/CarReservation"
+
+security:
+  - BasicAuth: []
+  - JwtAuthToken: []
+
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    JwtAuthToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    CarPublicIdPathParam:
+      name: publicId
+      in: path
+      required: true
+      description: The Car public id
+      schema:
+        type: string
+        format: uuid
+

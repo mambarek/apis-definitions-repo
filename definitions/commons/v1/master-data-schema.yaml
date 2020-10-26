@@ -1,0 +1,70 @@
+################################################
+# shared classes from master data
+################################################
+components:
+    schemas:
+        Address:
+            type: object
+            required:
+                - publicId
+            properties:
+                publicId:
+                    type: string
+                    format: uuid
+                    description: a UUID acts as public id to identify a Driver. Use this id for fetching and updating                
+                streetOne:
+                    type: string
+                    description: Street one of the Address
+                streetTwo:
+                    type: string
+                    description: Street two of the Address
+                buildingNr:
+                    type: string
+                    description: Buildings number of the Address
+                zipCode:
+                    type: string
+                    description: ZipCode one of the Address
+                city:
+                    type: string
+                    description: City two of the Address
+                countryCode:
+                    type: string
+                    description: Country Code of the Address
+  
+        Gender:
+            type: string
+            enum:
+                - MALE
+                - FEMALE
+  
+        PersonData:
+            required:
+                - birthDate
+                - email
+                - firstName
+                - gender
+                - lastName
+            type: object
+            properties:
+                firstName:
+                    maxLength: 100
+                    minLength: 3
+                    type: string
+                    description: Firstname of Person
+                lastName:
+                    maxLength: 100
+                    minLength: 3
+                    type: string
+                    description: Lastname of Person
+                birthDate:
+                    type: string
+                    format: date
+                    description: Birth date of Person
+                gender:
+                    $ref: "#/components/schemas/Gender"                       
+                email:
+                    type: string
+                    description: E-Mail of Pesron
+                address:
+                    $ref: '#/components/schemas/Address'
+                    description: Address of Person
