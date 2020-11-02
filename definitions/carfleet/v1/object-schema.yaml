@@ -121,7 +121,7 @@ components:
           type: string
         mileage:
           type: integer
-          format: int32
+          format: int16
         status:
           type: string
 
