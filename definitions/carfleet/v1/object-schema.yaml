@@ -44,7 +44,8 @@ components:
           description: A description field for more information about the Car
           example: A nice powerful car have alot of options
         manufacturingDate:
-          type: date
+          type: string
+          format: date
           description: The manufactring date of the car
         color:
           type: string
@@ -130,11 +131,11 @@ components:
       properties:
         total:
           type: integer
-          format: int32
+          format: int16
           description: The total count of items that fullfill the search query
         page:
           type: integer
-          format: int32
+          format: int16
           description: The current selected page in UI
         records:
           type: integer
