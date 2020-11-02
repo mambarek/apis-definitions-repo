@@ -3,7 +3,11 @@ components:
     Car:
       required:
         - publicId
-        - name
+        - brand
+        - model
+        - engineType
+        - manufacturingDate
+        - color
       type: object
       properties:
         publicId:
@@ -22,6 +26,12 @@ components:
           maxLength: 100
           description: The Car Model
           example: X5
+        engineType:
+          type: string
+          enum:
+            - ELECTRIC
+            - FUEL
+            - HYBRID
         fuelType:
           type: string
           enum:
