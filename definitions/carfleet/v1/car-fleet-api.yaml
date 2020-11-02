@@ -129,7 +129,7 @@ paths:
   /api/v1/cars/search:
     post:
       tags:
-        - search
+        - CarSearch
       summary: Search cars for a given filter
       description: Return a SearchResult containing found cars
       operationId: search
@@ -152,7 +152,7 @@ paths:
   /api/v1/reservation:
       get:
         tags:
-          - Reservation
+          - CarReservation
         operationId: getCarReservations
         responses:
           "200":
