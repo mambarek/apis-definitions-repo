@@ -50,7 +50,7 @@ components:
           type: string
         mileage:
           type: integer
-          format: int32
+          format: int16
           minimum: 0
           maximum: 1000000
           description: The miliage of Car
