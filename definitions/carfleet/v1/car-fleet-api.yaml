@@ -164,20 +164,7 @@ paths:
                   items:
                     $ref: "./object-schema.yaml#/components/schemas/CarReservation"
 
-security:
-  - BasicAuth: []
-  - JwtAuthToken: []
-
 components:
-  securitySchemes:
-    BasicAuth:
-      type: http
-      scheme: basic
-    JwtAuthToken:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-
   parameters:
     CarPublicIdPathParam:
       name: publicId
