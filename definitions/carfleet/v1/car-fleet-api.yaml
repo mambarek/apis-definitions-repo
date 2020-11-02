@@ -131,7 +131,7 @@ paths:
       tags:
         - CarSearch
       summary: Search cars for a given filter
-      description: Return a SearchResult containing found cars
+      description: Return a CarSearchResult containing found cars
       operationId: search
       requestBody:
         content:
@@ -147,7 +147,7 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: './object-schema.yaml#/components/schemas/SearchResult'
+                $ref: './object-schema.yaml#/components/schemas/CarSearchResult'
 
   /api/v1/reservation:
       get:

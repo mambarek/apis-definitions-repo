@@ -69,7 +69,30 @@ components:
               format: uuid
               description: a UUID acts as public id to identify a Driver. Use this id for fetching and updating
 
-    SearchResult:
+    CarTableItem:
+      type: object
+      description: Search list item to be shown in a llist view
+      properties:
+        publicId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        reservedFrom:
+          type: string
+          format: date-time
+        reservedTo:
+          type: string
+          format: date-time
+        mileage:
+          type: integer
+          format: int32
+        status:
+          type: string
+
+    CarSearchResult:
       type: object
       properties:
         total:
@@ -87,7 +110,7 @@ components:
         rows:
           type: array
           items:
-            $ref: '#/components/schemas/Car'
+            $ref: '#/components/schemas/CarTableItem'
           description: Car items returned
         userdata:
           type: object
