@@ -13,7 +13,7 @@ info:
 servers:
   - url: http://localhost:8030
 tags:
-  - name: Cars
+  - name: cars
     description: Cars fleet Mangament
     externalDocs:
       description: Find out more about our Car fleet
@@ -25,7 +25,7 @@ paths:
   /api/v1/cars:
     get:
       tags:
-        - Cars
+        - cars
       operationId: getCars
       summary: Returns all cars
       description: Return all Cars from DB
@@ -116,7 +116,7 @@ paths:
 
     delete:
       tags:
-        - car
+        - cars
       summary: Delete car
       description: Delete car by publicId
       operationId: deleteCar
