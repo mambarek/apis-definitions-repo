@@ -36,6 +36,7 @@ paths:
             text/plain:
               schema:
                 type: integer
+                format: int64
 
   /api/v1/cars:
     get:
