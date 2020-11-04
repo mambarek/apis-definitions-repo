@@ -22,6 +22,21 @@ tags:
     description: Car reservation service
 
 paths:
+  /api/v1/cars/count:
+    get:
+      tags:
+        - cars
+      operationId: getCarsCount
+      summary: Get the count of exisiting Cars
+      description: Returns rhe total count of all Cars
+      responses:
+        "200":
+          description: Returns Cars count
+          content:
+            '*/*':
+              schema:
+                type: integer
+
   /api/v1/cars:
     get:
       tags:
