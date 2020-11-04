@@ -141,43 +141,6 @@ paths:
                 $ref: '#/components/schemas/EmployeeTableItemList'
 components:
   schemas:
-    Address:
-      required:
-      - buildingNr
-      - city
-      - countryCode
-      - publicId
-      - streetOne
-      - zipCode
-      type: object
-      properties:
-        publicId:
-          type: string
-          format: uuid
-        streetOne:
-          maxLength: 100
-          minLength: 3
-          type: string
-        buildingNr:
-          maxLength: 5
-          minLength: 1
-          type: string
-        streetTwo:
-          maxLength: 100
-          minLength: 3
-          type: string
-        zipCode:
-          maxLength: 10
-          minLength: 5
-          type: string
-        city:
-          maxLength: 100
-          minLength: 3
-          type: string
-        countryCode:
-          maxLength: 3
-          minLength: 2
-          type: string
     Document:
       required:
       - contentType
