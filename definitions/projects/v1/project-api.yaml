@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  title: Project Management Service API
+  description: API for Project management App
+  contact:
+    name: Mohamed Ali Mbarek
+    email: mbarek@it-2go.de
+  license:
+    name: Apache license 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: "1.0"
+servers:
+  - url: http://localhost:8020
+    description: Generated server url
+paths:
+  /api/v1/projects/search:
+    post:
+      tags:
+        - project-controller
+      summary: Search projects for a given filter
+      description: Return a SearchResult containing found projects
+      operationId: search
+      requestBody:
+        content:
+          application/json:
+            schema:
+              # relative paths not working. paths must be absolute because the parsing is evaluated on the client
+              $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/commons/v1/shared-objects-schema.yaml#/components/schemas/SearchTemplate'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SearchResultProjectTableItem'
+  /api/v1/projects/{publicId}:
+    get:
+      tags:
+        - project-controller
+      summary: Retrieves a project by public id
+      description: Retrieves a project by public id
+      operationId: getProjectByPublicId
+      parameters:
+        - name: publicId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Project'
+    delete:
+      tags:
+        - project-controller
+      summary: Delete a project with a public id
+      description: Delete a project with a public id
+      operationId: deleteProject
+      parameters:
+        - name: publicId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+        - project-controller
+      summary: Updates a project with a public id
+      description: Updates a project with a public id
+      operationId: updateProject
+      parameters:
+        - name: publicId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Project'
+  /api/v1/projects:
+    get:
+      tags:
+        - project-controller
+      summary: Get projects
+      description: Get list of projects
+      operationId: getAllProjects
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      tags:
+        - project-controller
+      summary: Saves a new project
+      description: Saves a new project
+      operationId: saveProject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Project'
+  /api/v1/projects/count:
+    get:
+      tags:
+        - project-controller
+      summary: Returns the count of all projects
+      description: Returns the count of all projects
+      operationId: getProjectsCount
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+components:
+  schemas:
+    ProjectTableItem:
+      type: object
+      properties:
+        publicId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        budget:
+          type: number
+          format: double
+        planedStartDate:
+          type: string
+          format: date
+        planedFinishDate:
+          type: string
+          format: date
+        startDate:
+          type: string
+          format: date
+        finishDate:
+          type: string
+          format: date
+        status:
+          type: string
+    SearchResultProjectTableItem:
+      type: object
+      properties:
+        total:
+          type: integer
+          format: int32
+        page:
+          type: integer
+          format: int32
+        records:
+          type: integer
+          format: int64
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectTableItem'
+        userdata:
+          type: object
+    Project:
+      required:
+        - publicId
+      type: object
+      properties:
+        publicId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        budget:
+          type: number
+          format: double
+        planedStartDate:
+          type: string
+          format: date
+        planedFinishDate:
+          type: string
+          format: date
+        startDate:
+          type: string
+          format: date
+        finishDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - WAITING
+            - WORKING
+            - STOPPED
+            - FINISHED
+        projectSteps:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectStep'
+    ProjectStep:
+      required:
+        - publicId
+      type: object
+      properties:
+        publicId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        budget:
+          type: number
+          format: double
+        planedStartDate:
+          type: string
+          format: date
+        planedFinishDate:
+          type: string
+          format: date
+        startDate:
+          type: string
+          format: date
+        finishDate:
+          type: string
+          format: date
+        status:
+          type: string
+          enum:
+            - WAITING
+            - WORKING
+            - STOPPED
+            - FINISHED
