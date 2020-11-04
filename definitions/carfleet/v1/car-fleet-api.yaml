@@ -22,7 +22,7 @@ tags:
     description: Car reservation service
 
 paths:
-  /api/v1/count:
+  /api/v1/cars/count:
     get:
       tags:
         - cars
