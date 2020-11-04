@@ -67,6 +67,22 @@ paths:
                 format: uri
                 example: http://localhost:8030/api/v1/cars/{publicId}
 
+  /api/v1/cars/count:
+    get:
+      tags:
+        - cars
+      operationId: getCarsCount
+      summary: Get the count of exisiting Cars
+      description: Returns rhe total count of all Cars
+      responses:
+        "200":
+          description: Car successfuly found
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+
   /api/v1/cars/{publicId}:
     get:
       tags:
