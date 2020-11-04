@@ -22,7 +22,7 @@ tags:
     description: Car reservation service
 
 paths:
-  /api/v1/cars/count:
+  /api/v1/count:
     get:
       tags:
         - cars
@@ -144,7 +144,7 @@ paths:
         "204":
           description: Car successfully deleted
 
-  /api/v1/cars/search:
+  /api/v1/search:
     post:
       tags:
         - CarSearch
