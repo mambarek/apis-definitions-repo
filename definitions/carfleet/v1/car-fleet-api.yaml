@@ -76,12 +76,11 @@ paths:
       description: Returns rhe total count of all Cars
       responses:
         "200":
-          description: Car successfuly found
+          description: Returns Cars count
           content:
             '*/*':
               schema:
                 type: integer
-                format: int64
 
   /api/v1/cars/{publicId}:
     get:
