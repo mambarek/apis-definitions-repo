@@ -88,6 +88,9 @@ components:
           $ref: "#/components/schemas/Driver"
         status:
           $ref: "#/components/schemas/CarReservationStatusEnum"
+        eventMock:
+          description: This mock is only to generate CarReservationEventEnum
+          $ref: "#/components/schemas/CarReservationStatusEnum"
 
     CarReservationStatusEnum:
       type: string
@@ -102,13 +105,6 @@ components:
         - WAITING_FOR_PAY
         - PAYED
         - PAY_EXCEPTION
-
-    # This mock is only to generate CarReservationEventEnum
-    ReservationEventsConsumerMock:
-      description: This mock is only to generate CarReservationEventEnum
-      properties:
-        evenvts:
-          $ref: "#/components/schemas/CarReservationEventEnum"
 
     CarReservationEventEnum:
       type: string
