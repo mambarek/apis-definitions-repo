@@ -90,7 +90,7 @@ components:
           $ref: "#/components/schemas/CarReservationStatusEnum"
         eventMock:
           description: This mock is only to generate CarReservationEventEnum
-          $ref: "#/components/schemas/CarReservationStatusEnum"
+          $ref: "#/components/schemas/CarReservationEventEnum"
 
     CarReservationStatusEnum:
       type: string
