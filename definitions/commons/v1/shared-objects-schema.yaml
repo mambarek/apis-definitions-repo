@@ -58,6 +58,7 @@ components:
             - NUMBER
             - DATE
             - TIMESTAMP
+
     SearchTemplate:
       type: object
       properties:

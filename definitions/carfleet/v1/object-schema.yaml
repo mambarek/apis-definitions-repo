@@ -85,8 +85,35 @@ components:
           format: date-time
           description: The reservation end Date and Time in ISO 8601 format
         driver:
-          #type: string
           $ref: "#/components/schemas/Driver"
+        status:
+          $ref: "#/components/schemas/CarReservationStatusEnum"
+
+    CarReservationStatusEnum:
+      type: string
+      enum:
+        - NEW
+        - CONFIRMED
+        - ALLOCATED
+        - REJECTED
+        - CANCELLED
+        - STARTED
+        - FINISHED
+        - WAITING_FOR_PAY
+        - PAYED
+        - PAY_EXCEPTION
+
+    CarReservationEventEnum
+      type: string
+      enum:
+        - REJECT_RESERVATION
+        - CONFIRM_RESERVATION
+        - ALLOCATION_RESERVATION
+        - START_RESERVATION
+        - FINISH_RESERVATION
+        - CREATE_INVOICE
+        - PAY_INVOICE
+        - CANCEL_RESERVATION
 
     Driver:
       allOf:
