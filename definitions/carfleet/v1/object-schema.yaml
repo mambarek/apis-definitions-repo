@@ -103,7 +103,7 @@ components:
         - PAYED
         - PAY_EXCEPTION
 
-    CarReservationEventEnum
+    CarReservationEventEnum:
       type: string
       enum:
         - REJECT_RESERVATION
