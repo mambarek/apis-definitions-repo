@@ -103,6 +103,13 @@ components:
         - PAYED
         - PAY_EXCEPTION
 
+    # This mock is only to generate CarReservationEventEnum
+    ReservationEventsConsumerMock:
+      description: This mock is only to generate CarReservationEventEnum
+      properties:
+        evenvts:
+          $ref: "#/components/schemas/CarReservationEventEnum"
+
     CarReservationEventEnum:
       type: string
       enum:
