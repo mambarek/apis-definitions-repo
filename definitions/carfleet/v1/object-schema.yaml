@@ -119,18 +119,15 @@ components:
         - CANCEL_RESERVATION
 
     Driver:
-      allOf:
-        #- $ref: 'https://github.com/mambarek/api-commons-definitions/blob/master/apis/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
-        - $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
-        #- $ref: "https://raw.githubusercontent.com/mambarek/apirepo/master/masterdata.yaml#/components/schemas/PersonData"
-        - type: object
-          required:
-            - pubilicId
-          properties:
-            publicId:
-              type: string
-              format: uuid
-              description: a UUID acts as public id to identify a Driver. Use this id for fetching and updating
+      required:
+        - pubilicId
+      properties:
+        publicId:
+          type: string
+          format: uuid
+          description: a UUID acts as public id to identify a Driver. Use this id for fetching and updating
+        data:
+          $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
 
     CarTableItem:
       type: object
