@@ -72,10 +72,8 @@ components:
           type: string
           format: uuid
           description: a UUID acts as public id to identify a CarReservation. Use this id for fetching and updating
-        carId:
-          type: string
-          format: uuid
-          description: The public id of the reserved car
+        car:
+          $ref: "#/components/schemas/Car"
         reservedFrom:
           type: string
           format: date-time
