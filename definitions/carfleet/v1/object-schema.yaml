@@ -35,7 +35,7 @@ components:
         fuelType:
           type: string
           enum:
-            - DISEL
+            - DIESEL
             - PETROL
           description: The fuel type (Diesel, Petrol)
         description:
@@ -46,7 +46,7 @@ components:
         manufacturingDate:
           type: string
           format: date
-          description: The manufactring date of the car
+          description: The manufactoring date of the car
         color:
           type: string
         mileage:
@@ -54,7 +54,7 @@ components:
           format: int16
           minimum: 0
           maximum: 1000000
-          description: The miliage of Car
+          description: The mileage of Car
         status:
           type: string
           enum:
