@@ -2,7 +2,6 @@ components:
   schemas:
     Car:
       required:
-        - publicId
         - brand
         - model
         - engineType
