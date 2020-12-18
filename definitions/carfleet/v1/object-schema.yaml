@@ -63,7 +63,6 @@ components:
 
     CarReservation:
       required:
-        - publicId
         - carId
         - driver
       properties:
@@ -116,8 +115,6 @@ components:
         - CANCEL_RESERVATION
 
     Driver:
-      required:
-        - pubilicId
       properties:
         publicId:
           type: string
