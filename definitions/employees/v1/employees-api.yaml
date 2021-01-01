@@ -260,7 +260,7 @@ components:
     EmployeeExportEvent:
       type: object
       properties:
-        projects:
+        employees:
           type: array
           items:
             $ref: '#/components/schemas/Employee'
