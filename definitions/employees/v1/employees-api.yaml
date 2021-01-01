@@ -202,7 +202,7 @@ components:
         projects:
           type: array
           items:
-            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/projects/v1/projects-api.yaml'
+            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/projects/v1/projects-api.yaml#/components/schemas/Project'
 
     EmployeeTableItem:
       type: object
