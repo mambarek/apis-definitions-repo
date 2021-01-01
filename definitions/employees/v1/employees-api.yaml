@@ -139,6 +139,17 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/EmployeeTableItemList'
+
+  /api/v1/employees/jms:
+    get:
+      summary: This is a dummy API its used only to generate JMS artifacts on the client side
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EmployeeExportEvent'
 components:
   schemas:
     Document:
@@ -245,3 +256,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EmployeeTableItem'
+
+    EmployeeExportEvent:
+      type: object
+      properties:
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Employee'
