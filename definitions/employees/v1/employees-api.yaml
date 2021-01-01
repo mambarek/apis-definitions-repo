@@ -199,6 +199,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Document'
+        projects:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/projects/v1/projects-api.yaml#/components/schemas/Project'
 
     EmployeeTableItem:
       type: object

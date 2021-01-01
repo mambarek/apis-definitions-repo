@@ -232,6 +232,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ProjectStep'
+        employees:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/employeess/v1/employees-api.yaml#/components/schemas/Employee'
+
+
     ProjectStep:
       required:
         - publicId
