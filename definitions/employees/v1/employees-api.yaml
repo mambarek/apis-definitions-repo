@@ -199,10 +199,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Document'
-        projects:
+        assignedProjects:
           type: array
           items:
-            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/projects/v1/projects-api.yaml#/components/schemas/Project'
+            type: string
+            format: uuid
 
     EmployeeTableItem:
       type: object
