@@ -121,7 +121,7 @@ components:
           format: uuid
           description: a UUID acts as public id to identify a Driver. Use this id for fetching and updating
         data:
-          $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
+          $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
 
     CarTableItem:
       type: object

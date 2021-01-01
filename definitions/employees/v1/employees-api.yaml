@@ -187,7 +187,7 @@ components:
           type: string
           format: uuid
         data:
-          $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
+          $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/commons/v1/master-data-schema.yaml#/components/schemas/PersonData'
         salary:
           type: number
           format: double
@@ -202,7 +202,7 @@ components:
         projects:
           type: array
           items:
-            $ref: 'https://raw.githubusercontent.com/mambarek/api-commons-definitions/master/apis/projects/v1/projects-api.yaml#/components/schemas/Project'
+            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/projects/v1/projects-api.yaml'
 
     EmployeeTableItem:
       type: object
