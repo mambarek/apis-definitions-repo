@@ -263,8 +263,7 @@ components:
         assignedEmployees:
           type: array
           items:
-            type: string
-            format: uuid
+            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/employees/v1/employees-api.yaml#/components/schemas/Employee'
 
 
     ProjectStep:

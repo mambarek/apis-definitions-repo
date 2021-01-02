@@ -228,8 +228,7 @@ components:
         assignedProjects:
           type: array
           items:
-            type: string
-            format: uuid
+            $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/projects/v1/projects-api.yaml#/components/schemas/Project'
 
     EmployeeTableItem:
       type: object
