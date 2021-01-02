@@ -149,6 +149,21 @@ paths:
                 type: integer
                 format: int64
 
+  /api/v1/employees:
+    get:
+      tags:
+        - projects-controller
+      operationId: findAllEmployees
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: 'https://raw.githubusercontent.com/mambarek/apis-definitions-repo/master/definitions/employees/v1/employees-api.yaml#/components/schemas/Employee'
+
   /api/v1/projects/jms:
     get:
       summary: This is a dummy API its used only to generate JMS artifacts on the client side
