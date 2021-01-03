@@ -152,7 +152,7 @@ paths:
   /api/v1/employees:
     get:
       tags:
-        - projects-controller
+        - employees-controller
       operationId: findAllEmployees
       responses:
         "200":
