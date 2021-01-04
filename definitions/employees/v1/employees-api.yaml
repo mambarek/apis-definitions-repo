@@ -186,10 +186,9 @@ components:
           minLength: 3
           type: string
         content:
-          type: array
-          items:
-            type: string
-            format: byte
+          type: string
+          format: byte
+
     Employee:
       required:
       - createdAt
